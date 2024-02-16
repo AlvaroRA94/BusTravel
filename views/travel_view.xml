@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <!-- View List -->
+    <record id="view_travel_tree" model="ir.ui.view">
+        <field name="name">agency.travel.tree</field>
+        <field name="model">agency.travel</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="origin"/>
+                <field name="destination"/>
+                <field name="vehicle"/>
+                <field name="datetime"/>
+                <field name="traveller"/>
+                <field name="price"/>
+            </tree>
+        </field>           
+    </record>
+    <!-- End View List -->
+
+    <!-- View Form -->
+    <record id="view_travel_form" model="ir.ui.view">
+        <field name="name">agency.travel.form</field>
+        <field name="model">agency.travel</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="origin"/>
+                    <field name="destination"/>
+                    <field name="vehicle"/>
+                    <field name="datetime"/>
+                    <field name="traveller"/>
+                    <field name="price"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <!-- End View Form -->
+    
+    <!-- Actions -->
+        <record id="action_travel" model="ir.actions.act_window">
+            <field name="name">Travel</field>
+            <field name="res_model">agency.travel</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_travel_tree"/>
+        </record>
+    <!-- End Actions -->
+
+    <!-- Menu -->
+        <menuitem id="menu_travel" name="Travel" sequence="10"/>
+        <menuitem id="menu_travel_show" name="Show Travel" parent="menu_travel" action="action_travel"/>
+    <!-- End Menu -->
+
+    </data>
+</odoo>

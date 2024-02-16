@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <!-- View List -->
+    <record id="view_vehicle_tree" model="ir.ui.view">
+        <field name="name">agency.vehicle.tree</field>
+        <field name="model">agency.vehicle</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="capacity"/>
+                <field name="registration"/>
+            </tree>
+        </field>           
+    </record>
+    <!-- End View List -->
+
+    <!-- View Form -->
+    <record id="view_vehicle_form" model="ir.ui.view">
+        <field name="name">agency.vehicle.form</field>
+        <field name="model">agency.vehicle</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="capacity"/>
+                    <field name="registration"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <!-- End View Form -->
+    
+    <!-- Actions -->
+        <record id="action_vehicle" model="ir.actions.act_window">
+            <field name="name">Vehicle</field>
+            <field name="res_model">agency.vehicle</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_vehicle_tree"/>
+        </record>
+    <!-- End Actions -->
+
+    <!-- Menu -->
+        <menuitem id="menu_vehicle" name="Vehicle" sequence="10"/>
+        <menuitem id="menu_vehicle_show" name="Show Vehicle" parent="menu_vehicle" action="action_vehicle"/>
+    <!-- End Menu -->
+
+    </data>
+</odoo>

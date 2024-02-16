@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <!-- View List -->
+    <record id="view_traveller_tree" model="ir.ui.view">
+        <field name="name">agency.traveller.tree</field>
+        <field name="model">agency.traveller</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="surname"/>
+                <field name="documentation"/>
+                <field name="travel"/>
+            </tree>
+        </field>           
+    </record>
+    <!-- End View List -->
+
+    <!-- View Form -->
+    <record id="view_traveller_form" model="ir.ui.view">
+        <field name="name">agency.traveller.form</field>
+        <field name="model">agency.traveller</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="surname"/>
+                    <field name="documentation"/>
+                    <field name="travel"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <!-- End View Form -->
+    
+    <!-- Actions -->
+        <record id="action_traveller" model="ir.actions.act_window">
+            <field name="name">Traveller</field>
+            <field name="res_model">agency.traveller</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_traveller_tree"/>
+        </record>
+    <!-- End Actions -->
+
+    <!-- Menu -->
+        <menuitem id="menu_traveller" name="Traveller" sequence="10"/>
+        <menuitem id="menu_traveller_show" name="Show Traveller" parent="menu_traveller" action="action_traveller"/>
+    <!-- End Menu -->
+
+    </data>
+</odoo>
